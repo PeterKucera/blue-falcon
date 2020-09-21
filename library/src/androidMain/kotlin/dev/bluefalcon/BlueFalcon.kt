@@ -33,6 +33,7 @@ actual class BlueFalcon actual constructor(
         log("disconnect")
         mGattClientCallback.gattForDevice(bluetoothPeripheral.bluetoothDevice)?.apply {
             disconnect()
+            Thread.sleep(500)
             close()
         }
         delegates.forEach { it.didDisconnect(bluetoothPeripheral) }
